@@ -18,8 +18,6 @@ class JavaApplicationTests
 	void testChiffreRomin() 
 	{
 		String resulta = "I"; 
-		// convertisseurChiffreRomin.convertisseurChiffre(1).compareTo(resulta);
-
 		assertEquals(resulta, convertisseurChiffreRomin.convertisseurChiffre(1));
 	}
 
