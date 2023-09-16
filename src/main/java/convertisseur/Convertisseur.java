@@ -59,11 +59,13 @@ public class Convertisseur
                 indiceTabCentaines = Integer.parseInt(tabstringNumber[stringNumber.length()-3]);
                 chiffreRomain = tabCentaines[indiceTabCentaines].concat(tabDizaines[indiceTabDizaines].concat(tabUnites[indiceTabUnites]));
                 Integer nunmberSuperieurCentaine = Integer.parseInt(stringNumber.substring(0, stringNumber.length()-3)) ;
-
+                StringBuilder sb = new StringBuilder();
                 for(Integer i=0;i<nunmberSuperieurCentaine;i++)
                 {
-                    chiffreRomain = "M".concat(chiffreRomain);
+                    sb.append("M");
                 }
+
+                chiffreRomain = sb.toString().concat(chiffreRomain);
             }
         }
         return chiffreRomain;
