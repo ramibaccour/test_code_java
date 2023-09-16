@@ -14,7 +14,6 @@ public class Convertisseur
             Integer indiceTabUnites;            
             Integer indiceTabDizaines;
             Integer indiceTabCentaines;
-            Integer indiceTabMilliers;
 
             String stringNumber = number.toString();
             String  [] tabstringNumber = stringNumber.split("");
@@ -36,26 +35,25 @@ public class Convertisseur
             }
             else if(stringNumber.length() == 3)
             {
-                
+                indiceTabUnites = Integer.parseInt(tabstringNumber[2]);
+                indiceTabDizaines = Integer.parseInt(tabstringNumber[1]);
+                indiceTabCentaines = Integer.parseInt(tabstringNumber[0]);
+                chiffreRomain = tabCentaines[indiceTabCentaines].concat(tabDizaines[indiceTabDizaines].concat(tabUnites[indiceTabUnites]));
+                return chiffreRomain;
             }
-            else if(stringNumber.length() == 4)
+            else if(stringNumber.length() >= 4)
             {
-                
-            }
-            else if(stringNumber.length() == 5)
-            {
-                
-            }
-            else if(stringNumber.length() == 6)
-            {
-                
-            }
-            else if(stringNumber.length() == 7)
-            {
-                
-            }
-            return number.toString();
+                indiceTabUnites = Integer.parseInt(tabstringNumber[stringNumber.length()-1]);
+                indiceTabDizaines = Integer.parseInt(tabstringNumber[stringNumber.length()-2]);
+                indiceTabCentaines = Integer.parseInt(tabstringNumber[stringNumber.length()-3]);
+                chiffreRomain = tabCentaines[indiceTabCentaines].concat(tabDizaines[indiceTabDizaines].concat(tabUnites[indiceTabUnites]));
+                Integer nunmberSuperieurCentaine = Integer.parseInt(stringNumber.substring(0, stringNumber.length()-3)) ;
 
+                for(Integer i=0;i<nunmberSuperieurCentaine;i++)
+                {
+                    chiffreRomain = "M".concat(chiffreRomain);
+                }
+            }
         }
         return chiffreRomain;
     }
